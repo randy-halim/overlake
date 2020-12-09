@@ -9,5 +9,8 @@
     "start": "tsc --watch",
     "build": "tsc && docker build .",
     "test": "echo \"Error: No unit testing is configured.\" && exit 1"
+  },
+  "dependencies": {
+    "discord.js": "^11"
   }
 }
