@@ -20,11 +20,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Login to ghcr.io (beta)
+      - name: Login to docker.pkg.github.com
         uses: docker/login-action@v1
         with:
-          registry: ghcr.io
+          registry: docker.pkg.github.com
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GH_PAT }}
       - name: Push to registry
-        run: docker push ghcr.io/randy-halim/overlake-discord:latest
+        run: docker push docker.pkg.github.com/randy-halim/overlake-discord:latest
