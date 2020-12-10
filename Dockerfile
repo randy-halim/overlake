@@ -12,4 +12,6 @@ RUN ["rm", "package.json"]
 ENV DISCORD_TOKEN "REPLACE_IN_PRODUCTION"
 ENV SERVER_ID "REPLACE_IN_PRODUCTION"
 
+LABEL org.opencontainers.image.source https://github.com/randy-halim/overlake
+
 ENTRYPOINT [ "node", "index.js" ]
