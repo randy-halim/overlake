@@ -2,22 +2,15 @@ name: Docker Image CI
 
 on:
   push:
-<<<<<<< HEAD
     branches: [master]
   pull_request:
     branches: [master]
-=======
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
->>>>>>> 25f7abd64c9326af87144cb88bcdc96b87ded406
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-<<<<<<< HEAD
       - uses: actions/checkout@v2
       - name: Build files
         run: yarn global add typescript && tsc
@@ -27,12 +20,3 @@ jobs:
         run: echo $CR_PAT | docker login ghcr.io -u randy-halim --password-stdin
       - name: Push to registry
         run: docker push ghcr.io/randy-halim/overlake-discord:latest
-=======
-    - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag overlake-discord:latest
-    - name: Login to ghcr.io
-      run: echo $CR_PAT | docker login ghcr.io -u randy-halim --password-stdin
-    - name: Push to registry
-      run: docker push ghcr.io/randy-halim/overlake-discord:latest
->>>>>>> 25f7abd64c9326af87144cb88bcdc96b87ded406
