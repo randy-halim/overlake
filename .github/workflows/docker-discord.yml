@@ -12,11 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Declare version variable
-        run: |
-          echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
       - name: Compile .ts files to .js with tsc
-        run: yarn && yarn tsc
+        run: yarn && yarn tsc && ls -la
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag ghcr.io/randy-halim/overlake-discord:latest
       - name: Login to ghcr.io (beta)

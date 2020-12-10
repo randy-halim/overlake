@@ -2,16 +2,15 @@ FROM node:alpine
 
 WORKDIR "/home/node/app"
 
-COPY "build" "/home/node/app"
-COPY "package.json" "/home/node/app"
-
-RUN ["yarn", "install", "--production"]
-
-RUN ["rm", "package.json"]
+LABEL org.opencontainers.image.source https://github.com/randy-halim/overlake
 
 ENV DISCORD_TOKEN "REPLACE_IN_PRODUCTION"
 ENV SERVER_ID "REPLACE_IN_PRODUCTION"
 
-LABEL org.opencontainers.image.source https://github.com/randy-halim/overlake
+COPY "build" "/home/node/app"
+COPY "package.json" "/home/node/app"
+
+RUN ["yarn", "install", "--production", "--no-lockfile"]
+RUN ["rm", "package.json"]
 
 ENTRYPOINT [ "node", "index.js" ]
