@@ -24,4 +24,4 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GH_PAT }}
       - name: Push to registry
-        run: "docker push ghcr.io/randy-halim/overlake-discord:${{ env.PACKAGE_VERSION }}"
+        run: "docker push ghcr.io/randy-halim/overlake-discord"
