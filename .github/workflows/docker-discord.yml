@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build files
-        run: yarn global add typescript && tsc
+        run: yarn && tsc
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag overlake-discord:latest
       - name: Login to ghcr.io
