@@ -1,0 +1,20 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag overlake-discord:latest
+    - name: Login to ghcr.io
+      run: echo $CR_PAT | docker login ghcr.io -u randy-halim --password-stdin
+    - name: Push to registry
+      run: docker push ghcr.io/randy-halim/overlake-discord:latest
