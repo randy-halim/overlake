@@ -6,7 +6,15 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
-    "module": "CommonJS"
+    "module": "CommonJS",
+    "baseUrl": "./src",
+    "paths": {
+      "@Classes/*": ["./classes/*"],
+      "@ClientHandlers/*": ["./client-handlers/*"],
+      "@Common/*": ["./common/*"],
+      "@ClientCommands/*": ["./client-handlers/commands/*"]
+    },
+    "resolveJsonModule": true
   },
-  "include": ["./src/index.ts"]
+  "include": ["src"]
 }

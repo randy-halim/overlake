@@ -9,6 +9,7 @@ RUN ["yarn", "install", "--production"]
 
 RUN ["rm", "package.json"]
 
-ENV DISCORD_TOKEN "REPLACE_ME"
+ENV DISCORD_TOKEN "REPLACE_IN_PRODUCTION"
+ENV SERVER_ID "REPLACE_IN_PRODUCTION"
 
 ENTRYPOINT [ "node", "index.js" ]
