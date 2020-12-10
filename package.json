@@ -16,5 +16,6 @@
     "discord.js": "^11",
     "rxjs": "^6.6.3",
     "tsconfig-paths": "^3.9.0"
-  }
+  },
+  "version": "0.0.1-alpha"
 }
