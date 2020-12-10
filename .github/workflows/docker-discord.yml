@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-discord:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -16,15 +16,11 @@ jobs:
         run: yarn && yarn tsc
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag overlake-discord:latest
-  push:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Login to docker.pkg.github.com
+      - name: Login to ghcr.io (beta)
         uses: docker/login-action@v1
         with:
-          registry: docker.pkg.github.com
+          registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GH_PAT }}
       - name: Push to registry
-        run: docker push docker.pkg.github.com/randy-halim/overlake-discord:latest
+        run: docker push ghcr.io/randy-halim/overlake-discord:latest
