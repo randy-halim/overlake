@@ -1,0 +1,53 @@
+Arguments: 
+  /usr/bin/node /usr/share/node_modules/yarn/bin/yarn.js
+
+PATH: 
+  /home/fcrh/.vscode-server/bin/e5a624b788d92b8d34d1392e4c4d9789406efe8f/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64/compiler:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Calibre2/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/halim/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/halim/AppData/Local/Programs/Microsoft VS Code/bin:/home/fcrh/bin:/home/fcrh/.yarn/bin:/home/fcrh/.yarn/bin
+
+Yarn version: 
+  1.19.2
+
+Node version: 
+  12.15.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /home/fcrh/git-repos/overlake/package.json: Unexpected token < in JSON at position 388
+      at JSON.parse (<anonymous>)
+      at /usr/share/node_modules/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/share/node_modules/yarn/lib/cli.js:304:30)
+      at /usr/share/node_modules/yarn/lib/cli.js:315:13
+
+npm manifest: 
+  {
+    "devDependencies": {
+      "@types/node": "^14.14.11",
+      "dotenv": "^8.2.0",
+      "nodemon": "^2.0.6",
+      "typescript": "^4.1.2"
+    },
+    "main": "./index.js",
+    "scripts": {
+      "start": "NODE_ENV=dev nodemon -r tsconfig-paths/register src/index.ts",
+      "build": "tsc && docker build .",
+      "test": "echo \"Error: No unit testing is configured.\" && exit 1"
+    },
+    "dependencies": {
+  <<<<<<< HEAD
+      "tsconfig-paths": "^3.9.0",
+      "discord.js": "^11",
+      "rxjs": "^6.6.3"
+  =======
+      "discord.js": "^11"
+  >>>>>>> 8f25c4d9715697d94f8c72cb321bc948e2e34adb
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
