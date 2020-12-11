@@ -11,6 +11,7 @@ on:
 
 jobs:
   test-discord:
+    runs-on: ubuntu-20.04
     name: "Unit Testing: Discord"
     steps:
       - uses: actions/checkout@v2
