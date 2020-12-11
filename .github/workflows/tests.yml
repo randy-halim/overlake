@@ -1,0 +1,25 @@
+name: Unit Testing
+
+on:
+  push:
+    branches:
+      - master
+      - "ci/**"
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test-discord:
+    runs-on: ubuntu-20.04
+    name: "Unit Testing: Discord"
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        working-directory: packages/discord
+        run: yarn
+      - name: Run testing
+        working-directory: packages/discord
+        run: |
+          echo "Tests pass if test runner doesn't error"
+          yarn test
