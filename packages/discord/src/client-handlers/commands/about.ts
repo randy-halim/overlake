@@ -10,6 +10,6 @@ export default class AboutCommand implements Command {
       .setURL("https://github.com/randy-halim/overlake#readme")
       .addField("Version", "0.0.1", true)
       .setFooter(`Arguments provided: ${args.join(", ")}`);
-    await message.channel.sendEmbed(messageToSend);
+    await message.channel.send(messageToSend);
   }
 }
