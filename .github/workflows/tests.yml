@@ -15,10 +15,14 @@ jobs:
     name: "Unit Testing: Discord"
     steps:
       - uses: actions/checkout@v2
+      - name: List working directory
+        working-directory: packages/discord
+        run: ls -laR
       - name: Install dependencies
         working-directory: packages/discord
         run: yarn
       - name: Run testing
         run: |
+          ls -laR
           echo "Tests pass if test runner doesn't error"
           yarn test
