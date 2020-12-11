@@ -10,10 +10,10 @@ ENV NODE_ENV "PRODUCTION"
 ENV DISCORD_TOKEN "REPLACE_IN_PRODUCTION"
 ENV SERVER_ID "REPLACE_IN_PRODUCTION"
 
-COPY "build" "/home/node/app"
 COPY "package.json" "/home/node/app"
-
 RUN ["yarn", "install", "--production", "--no-lockfile"]
 RUN ["rm", "package.json"]
+
+COPY "build" "/home/node/app"
 
 ENTRYPOINT [ "node", "index.js" ]
