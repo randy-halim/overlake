@@ -41,6 +41,8 @@ jobs:
         with:
           name: js-package
       - uses: nyaayaya/package-version@v1
+      - name: List working directory
+        run: ls -laR
       - name: Build the Docker image
         working-directory: "${{steps.download.outputs.download-path}}"
         run: "docker build . --file Dockerfile --tag ghcr.io/randy-halim/overlake-discord:${{ env.PACKAGE_VERSION }} --tag ghcr.io/randy-halim/overlake-discord:latest"
