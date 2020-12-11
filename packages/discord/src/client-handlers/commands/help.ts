@@ -1,6 +1,7 @@
 import Command from "@Classes/Command";
 import { Message, RichEmbed } from "discord.js";
-import { commands, COMMAND_PREFIX } from "@ClientHandlers/commands";
+import { commands } from "@ClientHandlers/commands";
+import { COMMAND_PREFIX } from "config-env";
 
 export default class HelpCommand implements Command {
   public command = "help";

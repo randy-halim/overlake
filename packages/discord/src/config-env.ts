@@ -12,6 +12,14 @@ if (!SERVER_ID || SERVER_ID === "REPLACE_IN_PRODUCTION")
     process.exit(1);
 export { SERVER_ID };
 
+export let { COMMAND_PREFIX } = process.env;
+if (!COMMAND_PREFIX) {
+  console.warn(
+    'Unable to find a custom command prefix (did you set COMMAND_PREFIX in env?) - using default prefix "!"'
+  );
+  COMMAND_PREFIX = "!";
+}
+
 // process.env.NODE_ENV?.toLowerCase() === "production" &&
 //   tsconfig.register({
 //     baseUrl: "./",
