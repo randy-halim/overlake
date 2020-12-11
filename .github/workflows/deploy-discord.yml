@@ -28,6 +28,10 @@ jobs:
         with:
           name: js-package
           path: packages/discord/package.json
+      - uses: actions/upload-artifact@v2
+        with:
+          name: dockerfile
+          path: packages/discord/Dockerfile
   deploy-discord:
     needs: build-discord
     name: "Deploy Image to ghcr.io"
@@ -37,9 +41,13 @@ jobs:
         id: download
         with:
           name: js-bundle
+          path: build
       - uses: actions/download-artifact@v2
         with:
           name: js-package
+      - uses: actions/download-artifact@v2
+        with:
+          name: dockerfile
       - uses: nyaayaya/package-version@v1
       - name: List working directory
         run: ls -laR
