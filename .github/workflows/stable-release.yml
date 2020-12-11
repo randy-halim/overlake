@@ -11,12 +11,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: nyaayaya/package-version@v1
-        working-directory: packages/discord
+        with:
+          path: packages/discord/package.json
       - uses: shrink/actions-docker-registry-tag@v1
         with:
           registry: ghcr.io
           token: ${{ secrets.GH_PAT }}
           repository: randy-halim/overlake-discord
-          target: latest
+          target: ${{ env.PACKAGE_VERSION }}
           tags: |
             latest-stable
