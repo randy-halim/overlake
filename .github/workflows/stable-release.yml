@@ -1,0 +1,19 @@
+name: Mark Master Commit as Stable
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  mark-stable:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: shrink/actions-docker-registry-tag@v1
+        with:
+          registry: ghcr.io
+          token: ${{ secrets.GH_PAT }}
+          repository: randy-halim/overlake-discord
+          target: master
+          tags: |
+            latest-stable
