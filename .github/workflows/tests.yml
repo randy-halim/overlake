@@ -15,6 +15,9 @@ jobs:
     name: "Unit Testing: Discord"
     steps:
       - uses: actions/checkout@v2
+      - name: List working directory
+        working-directory: packages/discord
+        run: ls -laR
       - name: Install dependencies
         working-directory: packages/discord
         run: yarn
