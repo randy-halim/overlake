@@ -2,13 +2,10 @@ import "./config-env";
 import { Client } from "discord.js";
 import onMessageMiddleware from "@Common/wrap-message";
 import messageLog from "@ClientHandlers/message-log";
-import handleCommand from "@ClientHandlers/commands";
+import handleCommand, { COMMAND_PREFIX } from "@ClientHandlers/commands";
 
 const Discord = new Client();
-Discord.on("ready", async () => {
-  await Discord.user.setActivity("Running on TS-powered Node", {
-    type: "CUSTOM_STATUS",
-  });
+Discord.on("ready", () => {
   console.log("Joined!");
 });
 
