@@ -9,11 +9,14 @@ jobs:
   mark-stable:
     runs-on: ubuntu-20.04
     steps:
+      - uses: actions/checkout@v2
+      - uses: nyaayaya/package-version@v1
+        working-directory: packages/discord
       - uses: shrink/actions-docker-registry-tag@v1
         with:
           registry: ghcr.io
           token: ${{ secrets.GH_PAT }}
           repository: randy-halim/overlake-discord
-          target: master
+          target: latest
           tags: |
             latest-stable
